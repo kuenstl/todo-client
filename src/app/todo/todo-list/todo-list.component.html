@@ -1,0 +1,24 @@
+<section class="todoapp">
+  <header class="header">
+    <h1>Todos</h1>
+
+    <input
+      class="new-todo"
+      placeholder="What needs to be done?"
+      autofocus=""
+      [(ngModel)]="newTodoText"
+      (keyup.enter)="addTodo()"
+    />
+  </header>
+
+  <section class="main">
+    <ul class="todo-list">
+      <tdc-todo-item
+        *ngFor="let todo of todos"
+        [todo]="todo"
+        (onCompleted)="toggleCompletion(todo)"
+        (onDeleted)="delete(todo)"
+      ></tdc-todo-item>
+    </ul>
+  </section>
+</section>

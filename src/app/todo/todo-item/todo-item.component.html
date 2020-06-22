@@ -1,0 +1,9 @@
+<li [class.completed]="todo.completed">
+  <div class="view">
+    <input class="toggle" 
+      type="checkbox" 
+      (click)="completeTodo(todo)" [checked]="todo.completed">
+    <label>{{ todo.text }}</label>
+    <button class="destroy" (click)="deleteTodo(todo)"></button>
+  </div>
+</li>

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
-import { AppComponent } from './app.component';
 import { TodoModule } from './todo/todo.module';
+import { SentryErrorHandler } from './sentry-error-handler';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { TodoModule } from './todo/todo.module';
     BrowserModule,
     TodoModule
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
